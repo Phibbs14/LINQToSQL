@@ -1,0 +1,79 @@
+﻿<Window x:Class="_415Project.Views.NewDocumentPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="Popup" WindowStartupLocation="CenterOwner"
+        Title="New Document" Height="250" Width="330" MinWidth="330" MinHeight="250">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type StackPanel}">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Margin" Value="2"/>
+            </Style>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Width" Value="60"/>
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Width" Value="35"/>
+                <Setter Property="Height" Value="23"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Please enter the weights for each term between 1 and 10:" Margin="3" Grid.ColumnSpan="2"/>
+        <StackPanel Style="{x:Null}" Grid.Row="1" DataContext="{Binding Document}">
+            <StackPanel>
+                <Label Content="Term 1"/>
+                <TextBox Text="{Binding Term1, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 2"/>
+                <TextBox Text="{Binding Term2, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 3"/>
+                <TextBox Text="{Binding Term3, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 4"/>
+                <TextBox Text="{Binding Term4, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 5"/>
+                <TextBox Text="{Binding Term5, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Style="{x:Null}" Grid.Row="1" Grid.Column="1" DataContext="{Binding Document}">
+            <StackPanel>
+                <Label Content="Term 6"/>
+                <TextBox Text="{Binding Term6, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 7"/>
+                <TextBox Text="{Binding Term7, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 8"/>
+                <TextBox Text="{Binding Term8, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 9"/>
+                <TextBox Text="{Binding Term9, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Term 10"/>
+                <TextBox Text="{Binding Term10, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="2" Style="{x:Null}" Grid.ColumnSpan="2">
+            <Button Content="Save" Width="70" Margin="2" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=Popup}"/>
+            <Button Content="Cancel" Width="70" Margin="2" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=Popup}"/>
+        </StackPanel>
+    </Grid>
+</Window>

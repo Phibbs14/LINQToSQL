@@ -18,6 +18,13 @@ namespace _415Project.ViewModels
             this.canExecute = canExecute;
         }
 
+        public GenericCommand(Action execute, Func<bool> canExecute = null)
+        {
+            this.execute = delegate { execute(); };
+            if (canExecute != null)
+                this.canExecute = delegate { return canExecute(); };
+        }
+
         public bool CanExecute(object parameter)
         {
             return canExecute == null ? true : canExecute(parameter);
